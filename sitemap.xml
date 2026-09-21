@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://ipaf.cl/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <image:image><image:loc>https://ipaf.cl/img/banner/banner-ipaf-plataformas-elevadoras.webp</image:loc></image:image>
+    <image:image><image:loc>https://ipaf.cl/img/cursos/curso-ipaf-categoria-1a.webp</image:loc></image:image>
+    <image:image><image:loc>https://ipaf.cl/img/cursos/curso-ipaf-categoria-1b.webp</image:loc></image:image>
+    <image:image><image:loc>https://ipaf.cl/img/cursos/curso-ipaf-categoria-3a.webp</image:loc></image:image>
+    <image:image><image:loc>https://ipaf.cl/img/cursos/curso-ipaf-categoria-3b.webp</image:loc></image:image>
+  </url>
+</urlset>

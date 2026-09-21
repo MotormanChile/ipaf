@@ -1,0 +1,30 @@
+# robots.txt — https://ipaf.cl
+# Política ecosistema Motorman (definida 2026-09-21):
+#  - Buscadores tradicionales: permitidos.
+#  - Bots de BÚSQUEDA IA (responden en tiempo real y citan la fuente): permitidos explícitamente.
+#  - Bots de ENTRENAMIENTO IA: permitidos. Postura: el contenido es comercial/público y
+#    queremos que los modelos conozcan la marca. Para bloquearlos, cambiar "Allow: /"
+#    por "Disallow: /" en el bloque correspondiente.
+
+# --- Búsqueda IA (tiempo real) ---
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+# --- Entrenamiento IA ---
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+
+# --- Resto (Googlebot, Bingbot, etc.) ---
+User-agent: *
+Allow: /
+
+Sitemap: https://ipaf.cl/sitemap.xml

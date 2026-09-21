@@ -1,0 +1,60 @@
+# =====================================================================
+# ipaf.cl — Dominio único + rendimiento
+# Dominio canónico: https://ipaf.cl/ (sin www)
+# =====================================================================
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1) www.ipaf.cl -> https://ipaf.cl (301)
+  RewriteCond %{HTTP_HOST} ^www\.ipaf\.cl$ [NC]
+  RewriteRule ^(.*)$ https://ipaf.cl/$1 [R=301,L]
+
+  # 2) http -> https (301). Cloudflare envía X-Forwarded-Proto.
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://ipaf.cl/$1 [R=301,L]
+
+  # 3) /index.html -> / (evita URL duplicada)
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ https://ipaf.cl/ [R=301,L]
+
+  # 4) Rutas antiguas de imágenes/video -> nuevas (por si hay enlaces externos o caché de Google Imágenes)
+  RewriteRule ^img/Banner/BannerPrincipal\.jpg$ /img/banner/banner-ipaf-plataformas-elevadoras.webp [R=301,L,NC]
+  RewriteRule ^img/Banner/mobile/BannerMobile\.png$ /img/banner/banner-ipaf-mobile.webp [R=301,L,NC]
+  RewriteRule ^img/Plataformas/categoria(?:%20|\s)?1A\.jpg$ /img/cursos/curso-ipaf-categoria-1a.webp [R=301,L,NC]
+  RewriteRule ^img/Plataformas/categoria(?:%20|\s)?1B\.jpg$ /img/cursos/curso-ipaf-categoria-1b.webp [R=301,L,NC]
+  RewriteRule ^img/Plataformas/categoria(?:%20|\s)?3A\.png$ /img/cursos/curso-ipaf-categoria-3a.webp [R=301,L,NC]
+  RewriteRule ^img/Plataformas/CATEGORIAS_3b-02\.png$ /img/cursos/curso-ipaf-categoria-3b.webp [R=301,L,NC]
+  RewriteRule ^img/Vend/Rodrigo-2\.jpg$ /img/equipo/instructor-ipaf-rodrigo-carreno.webp [R=301,L,NC]
+  RewriteRule ^video/Video(?:%20|\s)en(?:%20|\s)movimiento(?:%20|\s)maquina\.mp4$ /video/formacion-ipaf-plataforma-elevadora.mp4 [R=301,L,NC]
+</IfModule>
+
+# ---------- Tipos MIME ----------
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType text/plain .txt
+  AddCharset utf-8 .txt .html .css .xml
+</IfModule>
+
+# ---------- Compresión ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript application/ld+json image/svg+xml
+</IfModule>
+
+# ---------- Caché del navegador ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType text/plain "access plus 1 day"
+  ExpiresByType application/xml "access plus 1 day"
+</IfModule>

@@ -1911,6 +1911,18 @@ body.light .footer-logo-light { display: block; }
 }
 .footer-links li a:hover { color: var(--gold); }
 
+/* Enlaces al ecosistema Motorman (sitios hermanos) */
+.footer-sister {
+  padding: 20px 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  line-height: 2;
+}
+.footer-sister .footer-links-title { display: block; margin-bottom: 4px; }
+.footer-sister a { color: var(--text); transition: var(--transition); }
+.footer-sister a:hover { color: var(--gold); }
+
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.05);
   padding: 24px 0;

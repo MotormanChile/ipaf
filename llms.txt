@@ -1,0 +1,37 @@
+# Motorman IPAF — Centro de Formación IPAF en Chile
+
+> Centro de Formación Homologado IPAF de Motorman, ubicado en Río Palena 9686, Pudahuel, Santiago de Chile. Certifica operadores de plataformas elevadoras móviles de personal (PEMP) con la Tarjeta PAL internacional (válida en más de 70 países) en las categorías 1A, 1B, 3A y 3B. Programa certificado por TÜV. Formación presencial: teoría + evaluación práctica.
+
+Datos clave:
+- Sitio: https://ipaf.cl/
+- Empresa matriz: Motorman (https://www.motorman.cl/)
+- Dirección: Río Palena 9686, Pudahuel, Región Metropolitana, Chile
+- Teléfono / WhatsApp: +56 9 6531 5200
+- Email: contacto@motorman.cl
+- Horario: lunes a viernes, 09:00–18:00
+- Instructor: Rodrigo Carreño, Instructor IPAF y Product Manager de Alzahombres en Motorman
+- Vigencia de la Tarjeta PAL: 5 años (se renueva con curso de actualización)
+- Descuentos por grupo: 10% (2 personas), 20% (4 personas), 30% (6 o más)
+- Curso IPAF gratis para el operador al comprar una plataforma elevadora en Motorman
+
+## Cursos
+
+- [Categoría 1A — Estáticas Verticales](https://ipaf.cl/#panel-1): elevadores PAV de empuje manual; no se desplazan elevados y la plataforma no sobrepasa la base.
+- [Categoría 1B — Brazos Estáticos](https://ipaf.cl/#panel-2): plataformas sobre camión o remolque; no se desplazan elevadas, la plataforma sí sobrepasa la base.
+- [Categoría 3A — Verticales Móviles](https://ipaf.cl/#panel-3): plataformas tijera autopropulsadas; se conducen elevadas sin sobrepasar la base.
+- [Categoría 3B — Brazos Móviles](https://ipaf.cl/#panel-4): brazos articulados autopropulsados; se conducen elevados y sobrepasan la base.
+
+## Información
+
+- [Por qué certificarse con IPAF](https://ipaf.cl/#why): Tarjeta PAL, app ePAL y centro homologado.
+- [Beneficios y descuentos](https://ipaf.cl/#beneficios): instructor experto, curso gratis con compra, renovación con descuento, descuentos por grupo.
+- [Preguntas frecuentes](https://ipaf.cl/#faq): qué es IPAF, duración, categorías, validez internacional, renovación, certificación TÜV.
+- [Contacto y ubicación](https://ipaf.cl/#contact): formulario de cotización, mapa y datos de contacto.
+
+## Ecosistema Motorman
+
+- [Motorman](https://www.motorman.cl/): maquinaria, repuestos y servicio técnico en Chile.
+- [Motormaq](https://motormaq.cl/): repuestos para maquinaria, neumáticos y filtros.
+- [Yanmaq](https://yanmaq.cl/): venta y repuestos de miniexcavadoras Yanmar en Chile.
+- [Motores Kubota](https://motoreskubota.cl/): motores y repuestos Kubota originales.
+- [MTQ](https://mtq.cl/)
