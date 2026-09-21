@@ -10,4 +10,12 @@
     <image:image><image:loc>https://ipaf.cl/img/cursos/curso-ipaf-categoria-3a.webp</image:loc></image:image>
     <image:image><image:loc>https://ipaf.cl/img/cursos/curso-ipaf-categoria-3b.webp</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://ipaf.cl/guias/categorias-ipaf/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://ipaf.cl/guias/renovar-tarjeta-pal/</loc>
+    <lastmod>2026-09-21</lastmod>
+  </url>
 </urlset>

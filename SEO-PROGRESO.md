@@ -31,7 +31,7 @@ Otros arreglos encontrados en el camino:
 4. Validar schema en https://search.google.com/test/rich-results y https://validator.schema.org.
 5. Cloudflare: desactivar bloqueo de bots IA si está activo.
 6. Perfil de Negocio de Google (punto 6).
-7. El video `video/formacion-ipaf-plataforma-elevadora.mp4` sigue siendo un placeholder de 0 bytes.
+7. El video `video/formacion-ipaf-plataforma-elevadora.mp4` sigue siendo un placeholder de 0 bytes. Mientras tanto la sección #why muestra una imagen (el `<video>` quedó comentado en `index.html` para restaurarlo).
 
 ## Punto 8 — Propuesta de guías long-tail
 Crear una sección `/guias/` con páginas cortas y concretas (URLs sin conectores):
@@ -51,3 +51,16 @@ Cada una con H1 único, FAQPage propio, enlace a `/#cursos` y a Motorman. Requie
 | motoreskubota.cl | — | ❌ www y sin www responden 200 (duplicado); el `<title>` dice "Motorman Chile" en vez de la marca |
 | mtq.cl | — | ❌ no responde (timeout) |
 | ipaf.cl | `https://ipaf.cl` | ❌ hoy duplicado → corregido con `.htaccess` (falta deploy) |
+
+## Ronda 2 — mejoras tras auditoría (2026-09-21)
+| Acción | Estado | Detalle |
+|--------|--------|---------|
+| Video vacío | ✅ | Reproductor roto reemplazado por imagen hasta tener el video real. |
+| Keywords locales | ✅ | "alzahombre(s)" y "trabajo en altura" en hero, sección #why y FAQ. |
+| FAQ | ✅ | Nueva pregunta "¿Qué es un alzahombre y qué curso IPAF necesito?" (visible + schema, 7/7 en sincronía). Nota: Google retiró los resultados enriquecidos FAQ (mayo 2026); se mantiene por contenido/IA. |
+| "Tiempo limitado" | ✅ | Cambiado a "Ahorra en grupo" (no había fecha de vigencia). |
+| Guías long-tail | ✅ 2 de 5 | `/guias/categorias-ipaf/` y `/guias/renovar-tarjeta-pal/` con Article + BreadcrumbList, enlazadas desde home (FAQ, #why, footer), sitemap y llms.txt. |
+| Limpieza | ✅ | Eliminados `img/logo/experiencia.jpg.webp` (776 KB) y `Logo-ipaf-1.png` (sin uso). |
+| Precios / duración / fechas | ⏳ negocio | Falta definir precio "desde", horas por categoría y calendario → luego agregar `offers` y `courseWorkload` al schema Course. |
+| Testimonios / ID centro IPAF | ⏳ negocio | Falta material real (testimonios con empresa, logos, ID de centro). |
+| Revisión experta de guías | ⏳ | Que Rodrigo Carreño revise las 2 guías; si aprueba, firmarlas con su nombre (autor Person en schema). |

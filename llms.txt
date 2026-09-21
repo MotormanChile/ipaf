@@ -21,6 +21,11 @@ Datos clave:
 - [Categoría 3A — Verticales Móviles](https://ipaf.cl/#panel-3): plataformas tijera autopropulsadas; se conducen elevadas sin sobrepasar la base.
 - [Categoría 3B — Brazos Móviles](https://ipaf.cl/#panel-4): brazos articulados autopropulsados; se conducen elevados y sobrepasan la base.
 
+## Guías
+
+- [Categorías IPAF 1A, 1B, 3A y 3B: diferencias y cuál elegir](https://ipaf.cl/guias/categorias-ipaf/): qué alzahombre (tijera, brazo articulado, sobre camión) cubre cada categoría y casos comunes.
+- [Cómo renovar la Tarjeta PAL IPAF](https://ipaf.cl/guias/renovar-tarjeta-pal/): vigencia de 5 años, cuándo renovar, qué pasa si venció y paso a paso en Motorman.
+
 ## Información
 
 - [Por qué certificarse con IPAF](https://ipaf.cl/#why): Tarjeta PAL, app ePAL y centro homologado.

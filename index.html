@@ -69,7 +69,7 @@ gtag('config', 'G-RLBTQGY7ZK');
 </script>
 
 <!-- ===== HOJA DE ESTILOS EXTERNA ===== -->
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 
 
 <!-- ===== JSON-LD: Organization + LocalBusiness + WebSite + WebPage + Service + Course ===== -->
@@ -298,7 +298,15 @@ gtag('config', 'G-RLBTQGY7ZK');
       "name": "¿Cada cuánto se renueva la certificación IPAF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La Tarjeta PAL tiene una vigencia de 5 años. Para su renovación, el operador debe asistir a un curso de actualización con un centro homologado IPAF como Motorman."
+        "text": "La Tarjeta PAL tiene una vigencia de 5 años. Para su renovación, el operador debe asistir a un curso de actualización con un centro homologado IPAF como Motorman. Paso a paso en la guía cómo renovar la Tarjeta PAL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es un alzahombre y qué curso IPAF necesito para operarlo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En Chile se le llama alzahombre a la plataforma elevadora móvil de personal (PEMP) usada para trabajo en altura. La categoría IPAF depende del equipo: 3A para tijeras autopropulsadas, 3B para brazos articulados o telescópicos autopropulsados, 1A para verticales de empuje manual y 1B para brazos sobre camión o remolque. Ver diferencias entre categorías IPAF."
       }
     },
     {
@@ -415,7 +423,7 @@ gtag('config', 'G-RLBTQGY7ZK');
         Cursos IPAF Chile
         <span class="accent">Tarjeta PAL Internacional</span>
       </h1>
-      <p class="hero-desc">Centro de Formación Homologado IPAF en Santiago. Certifícate como operador de plataformas elevadoras (PEMP) con la <strong>Tarjeta PAL</strong>, válida en más de 70 países. Formación teórica y práctica con certificación TÜV.</p>
+      <p class="hero-desc">Centro de Formación Homologado IPAF en Santiago. Certifícate como operador de plataformas elevadoras o alzahombres (PEMP) con la <strong>Tarjeta PAL</strong>, válida en más de 70 países. Formación teórica y práctica con certificación TÜV.</p>
       <div class="hero-actions">
         <a href="#cursos" class="btn-primary-gold">
           <span class="material-icons" aria-hidden="true" style="font-size:18px!important">school</span>
@@ -680,7 +688,10 @@ gtag('config', 'G-RLBTQGY7ZK');
           <div class="section-line" style="margin:20px 0 0;"></div>
         </div>
         <p class="why-body">
-          La Federación Internacional del Acceso Motorizado (IPAF) fomenta el uso seguro y efectivo del acceso motorizado en todo el mundo. Nuestro programa, certificado por TÜV, clasifica los equipos en categorías precisas para asegurar una formación adecuada a la máquina que operas.
+          La Federación Internacional del Acceso Motorizado (IPAF) fomenta el uso seguro y efectivo del acceso motorizado en todo el mundo. Nuestro programa, certificado por TÜV, clasifica los equipos en categorías precisas para asegurar una formación adecuada a la máquina que operas: desde el alzahombre tipo tijera hasta el brazo articulado. Es la base para trabajar en altura con plataformas de forma segura y demostrable ante tu empresa o mandante.
+        </p>
+        <p class="why-body" style="margin-top:12px;">
+          ¿No sabes qué categoría necesitas? Revisa nuestra guía <a href="/guias/categorias-ipaf/" style="color:var(--gold);text-decoration:underline;">Categorías IPAF 1A, 1B, 3A y 3B: diferencias y cuál elegir</a>.
         </p>
         <div class="why-pal-badge">
           <span class="material-icons">verified</span>
@@ -706,10 +717,12 @@ gtag('config', 'G-RLBTQGY7ZK');
       </div>
       <div class="why-media reveal reveal-delay-2">
         <div class="why-video-wrap">
-          <video controls preload="none" title="Plataforma elevadora en movimiento — Formación IPAF Motorman">
-            <source src="video/formacion-ipaf-plataforma-elevadora.mp4" type="video/mp4">
-            Tu navegador no soporta video.
-          </video>
+          <!-- Mientras video/formacion-ipaf-plataforma-elevadora.mp4 sea un placeholder vacío se muestra
+               una imagen (un <video> sin archivo deja un reproductor roto). Cuando exista el video, volver a:
+               <video controls preload="none" poster="img/cursos/curso-ipaf-categoria-3b.webp" title="Plataforma elevadora en movimiento — Formación IPAF Motorman">
+                 <source src="video/formacion-ipaf-plataforma-elevadora.mp4" type="video/mp4">
+               </video> -->
+          <img src="img/cursos/curso-ipaf-categoria-3b.webp" alt="Alzahombre de brazo articulado, categoría IPAF 3B — Formación Motorman" width="900" height="900" loading="lazy" decoding="async">
           <div class="why-video-overlay"></div>
         </div>
       </div>
@@ -753,7 +766,7 @@ gtag('config', 'G-RLBTQGY7ZK');
 
     <!-- Ofertas -->
     <div class="section-header reveal" style="margin-top:80px;">
-      <span class="section-eyebrow">Tiempo Limitado</span>
+      <span class="section-eyebrow">Ahorra en Grupo</span>
       <h2 class="section-title">Descuentos por Grupo en Cursos IPAF</h2>
       <div class="section-line"></div>
     </div>
@@ -1058,7 +1071,17 @@ gtag('config', 'G-RLBTQGY7ZK');
           <span class="material-icons faq-icon" aria-hidden="true">expand_more</span>
         </summary>
         <div class="faq-a">
-          La Tarjeta PAL tiene una vigencia de <strong>5 años</strong>. Para su renovación, el operador debe asistir a un curso de actualización con un centro homologado IPAF como Motorman.
+          La Tarjeta PAL tiene una vigencia de <strong>5 años</strong>. Para su renovación, el operador debe asistir a un curso de actualización con un centro homologado IPAF como Motorman. Paso a paso en la guía <a href="/guias/renovar-tarjeta-pal/" style="color:var(--gold);text-decoration:underline;">cómo renovar la Tarjeta PAL</a>.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q">¿Qué es un alzahombre y qué curso IPAF necesito para operarlo?</span>
+          <span class="material-icons faq-icon" aria-hidden="true">expand_more</span>
+        </summary>
+        <div class="faq-a">
+          En Chile se le llama <strong>alzahombre</strong> a la plataforma elevadora móvil de personal (PEMP) usada para trabajo en altura. La categoría IPAF depende del equipo: <strong>3A</strong> para tijeras autopropulsadas, <strong>3B</strong> para brazos articulados o telescópicos autopropulsados, <strong>1A</strong> para verticales de empuje manual y <strong>1B</strong> para brazos sobre camión o remolque. Ver <a href="/guias/categorias-ipaf/" style="color:var(--gold);text-decoration:underline;">diferencias entre categorías IPAF</a>.
         </div>
       </details>
 
@@ -1093,6 +1116,8 @@ gtag('config', 'G-RLBTQGY7ZK');
           <li><a href="#beneficios">Beneficios</a></li>
           <li><a href="#contact">Contacto</a></li>
           <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="/guias/categorias-ipaf/">Guía: categorías IPAF</a></li>
+          <li><a href="/guias/renovar-tarjeta-pal/">Guía: renovar Tarjeta PAL</a></li>
         </ul>
       </div>
       <div>
