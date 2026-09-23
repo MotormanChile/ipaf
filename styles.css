@@ -455,6 +455,8 @@ nav.main-nav ul li a.nav-cta:hover { background: var(--orange-hover); color: var
 }
 .hero-badge::before {
   content: '';
+  align-self: flex-start;
+  margin-top: 0.35em;
   width: 10px; height: 10px;
   background: var(--signal);
   flex-shrink: 0;
@@ -708,7 +710,7 @@ body.light .hero-title .accent::before { content: '\A'; white-space: pre; }
 
 .curso-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -729,10 +731,11 @@ body.light .hero-title .accent::before { content: '\A'; white-space: pre; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: var(--foco, 50%) 50%;
 }
 
 .curso-info {
-  padding: 40px 44px;
+  padding: 32px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -749,30 +752,30 @@ body.light .hero-title .accent::before { content: '\A'; white-space: pre; }
 .curso-name {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem);
+  font-size: clamp(2.25rem, 1.6rem + 2vw, 3rem);
   line-height: var(--lh-tight);
   text-transform: uppercase;
   color: var(--text-strong);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .curso-sub {
   font-size: var(--fs-md);
   color: var(--text);
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   line-height: var(--lh-normal);
 }
 
 /* Características como placa técnica: rótulo | valor */
 .curso-features {
   list-style: none;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   border-bottom: 1px solid var(--line);
 }
 .curso-features li {
   display: grid;
   grid-template-columns: 148px 1fr;
   gap: 16px;
-  padding: 12px 0;
+  padding: 9px 0;
   border-top: 1px solid var(--line);
   font-size: var(--fs-sm);
   line-height: var(--lh-normal);
@@ -1565,7 +1568,19 @@ body.light .footer-logo-light { display: block; }
 /* ≤900px: apilado, texto arriba y foto debajo */
 @media (max-width: 900px) {
   .hero-grid { display: block; min-height: 0; }
-  .hero-media { aspect-ratio: 4 / 3.4; }
+  .hero-content { padding-bottom: 20px; }
+  /* Foto completa (sin recorte) y con el borde superior fundido al fondo: se une al texto en vez de verse como un bloque aparte */
+  .hero-media { background: transparent; margin-top: -12px; }
+  .hero-media picture { position: static; }
+  .hero-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 74vh;
+    object-fit: contain;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 16%);
+  }
 }
 
 /* Nav de escritorio no cabe → hamburguesa */
@@ -1592,7 +1607,6 @@ body.light .footer-logo-light { display: block; }
   .hero-desc { margin-bottom: 28px; }
   .hero-actions { flex-direction: column; }
   .hero-actions a { width: 100%; }
-  .hero-media { aspect-ratio: 1 / 1; }
   .hero-stat, .hero-stat:first-child { padding: 18px 16px; }
 
   .section-header { margin-bottom: 36px; }
