@@ -115,3 +115,12 @@ Dirección: **señalética industrial de obra**. Barlow Condensed (titulares, na
 - **#why:** la credencial PAL ilustrada se reemplazó por el video `video/Seguridad_en_Altura.mp4` (1280×720, 4:20, ~23 MB) con `preload="none"` y poster `video/seguridad-en-altura-poster.webp` (40 KB). Agregado `VideoObject` al JSON-LD.
 - **Ojo:** el video dice "80" (países) y la página dice "+70". Unificar la cifra.
 - **Ojo:** Cloudflare Workers limita cada archivo estático a 25 MiB; el video pesa 22,9 MiB. Si se reemplaza por uno más largo o de mayor calidad, comprimirlo o subirlo a YouTube.
+
+### Ronda 4d — Redirecciones legacy en Cloudflare (2026-09-23)
+Bulk Redirect List `ipaf_rutas_legacy` (ahora 13 entradas), verificado en vivo con curl:
+- `/img/Vend/Rodrigo-2.jpg` → `/img/equipo/rodrigo-carreno.jpg` (antes apuntaba a la .webp borrada → 404).
+- `/video/Video en movimiento maquina.mp4` → `/video/Seguridad_en_Altura.mp4` (antes apuntaba al placeholder borrado).
+- **Nueva:** `/img/equipo/instructor-ipaf-rodrigo-carreno.webp` → `/img/equipo/rodrigo-carreno.jpg` (estuvo en el schema).
+
+### Ronda 4e — Tema claro por defecto (2026-09-23)
+- `<body class="light">` en home y guías: la página abre en tema claro. Si el visitante elige oscuro con el botón, se guarda (`localStorage ipaf-theme = dark`) y se respeta en las siguientes visitas. `theme-color` = `#ecedea`.
