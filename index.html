@@ -13,7 +13,7 @@
 <meta name="geo.placename" content="Pudahuel, Santiago, Chile">
 <meta name="geo.position" content="-33.4172;-70.7595">
 <meta name="ICBM" content="-33.4172, -70.7595">
-<meta name="theme-color" content="#0d0d0d">
+<meta name="theme-color" content="#151618">
 
 <!-- Dominio único: https://ipaf.cl/ (sin www). www y http redirigen 301 vía .htaccess -->
 <link rel="canonical" href="https://ipaf.cl/">
@@ -45,14 +45,16 @@
 <!-- ===== FONTS (preconnect + preload del CSS de Google Fonts) ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700;900&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700;900&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></noscript>
+<!-- Barlow Condensed (display, nace de la señalética vial) + Barlow (texto) + IBM Plex Mono (rótulos tipo placa técnica) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<!-- display=block: evita que se vea el nombre del ícono ("school", "call") mientras carga la fuente -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block"></noscript>
 
 <!-- ===== PRELOAD del HERO (mejora LCP) ===== -->
-<link rel="preload" as="image" type="image/webp" href="img/banner/banner-ipaf-plataformas-elevadoras.webp" fetchpriority="high" media="(min-width: 768px)">
-<link rel="preload" as="image" type="image/webp" href="img/banner/banner-ipaf-mobile.webp" fetchpriority="high" media="(max-width: 767px)">
+<link rel="preload" as="image" type="image/webp" href="img/banner/banner-ipaf-plataformas-elevadoras.webp" fetchpriority="high" media="(min-width: 1301px)">
+<link rel="preload" as="image" type="image/webp" href="img/banner/banner-ipaf-mobile.webp" fetchpriority="high" media="(max-width: 1300px)">
 
 <!-- ===== GOOGLE TAG MANAGER ===== -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -69,7 +71,9 @@ gtag('config', 'G-RLBTQGY7ZK');
 </script>
 
 <!-- ===== HOJA DE ESTILOS EXTERNA ===== -->
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=8">
+<!-- Sin JS no corre el IntersectionObserver: mostrar el contenido animado igual -->
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 
 
 <!-- ===== JSON-LD: Organization + LocalBusiness + WebSite + WebPage + Service + Course ===== -->
@@ -103,19 +107,13 @@ gtag('config', 'G-RLBTQGY7ZK');
         "https://www.facebook.com/Motorman.cl",
         "https://www.instagram.com/motormanchile/",
         "https://www.linkedin.com/company/motorman-chile/",
-        "https://www.tiktok.com/@motorman.chile",
-        "https://ipaf.cl/",
-        "https://motormaq.cl/",
-        "https://yanmaq.cl/",
-        "https://motoreskubota.cl/",
-        "https://mtq.cl/"
+        "https://www.tiktok.com/@motorman.chile"
       ],
       "subOrganization": [
         { "@id": "https://ipaf.cl/#centro" },
-        { "@type": "Organization", "name": "Motormaq", "url": "https://motormaq.cl/", "description": "Repuestos para maquinaria, neumáticos y filtros." },
-        { "@type": "Organization", "name": "Yanmaq", "url": "https://yanmaq.cl/", "description": "Venta y repuestos de miniexcavadoras Yanmar en Chile." },
-        { "@type": "Organization", "name": "Motores Kubota Motorman", "url": "https://motoreskubota.cl/", "description": "Motores y repuestos Kubota originales en Chile." },
-        { "@type": "Organization", "name": "MTQ", "url": "https://mtq.cl/" }
+        { "@type": "Organization", "@id": "https://motormaq.cl/#organization", "name": "Motormaq", "url": "https://motormaq.cl/", "description": "Repuestos para maquinaria, neumáticos y filtros." },
+        { "@type": "Organization", "name": "Yanmaq", "url": "https://www.yanmaq.cl/", "description": "Venta y repuestos de miniexcavadoras Yanmar en Chile." },
+        { "@type": "AutoPartsStore", "@id": "https://motoreskubota.cl/#business", "name": "Motorman S.A. — Kubota Chile", "url": "https://motoreskubota.cl/", "description": "Motores y repuestos Kubota originales en Chile." }
       ]
     },
     {
@@ -157,7 +155,7 @@ gtag('config', 'G-RLBTQGY7ZK');
         "@type": "Person",
         "name": "Rodrigo Carreño",
         "jobTitle": "Instructor IPAF · Product Manager Alzahombres",
-        "image": "https://ipaf.cl/img/equipo/instructor-ipaf-rodrigo-carreno.webp"
+        "image": "https://ipaf.cl/img/equipo/rodrigo-carreno.jpg"
       },
       "sameAs": [
         "https://www.facebook.com/Motorman.cl",
@@ -185,6 +183,18 @@ gtag('config', 'G-RLBTQGY7ZK');
       "about": { "@id": "https://ipaf.cl/#centro" },
       "primaryImageOfPage": { "@type": "ImageObject", "url": "https://ipaf.cl/img/banner/og-ipaf-motorman.jpg", "width": 1200, "height": 630 },
       "mainEntity": { "@id": "https://ipaf.cl/#servicio" }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://ipaf.cl/#video-seguridad-altura",
+      "name": "Seguridad en altura — Formación IPAF Motorman",
+      "description": "Video sobre seguridad en trabajo en altura con plataformas elevadoras móviles de personal (PEMP): normas, equipos de protección y operación segura.",
+      "thumbnailUrl": "https://ipaf.cl/video/seguridad-en-altura-poster.webp",
+      "contentUrl": "https://ipaf.cl/video/Seguridad_en_Altura.mp4",
+      "uploadDate": "2026-09-23",
+      "duration": "PT4M20S",
+      "inLanguage": "es",
+      "publisher": { "@id": "https://www.motorman.cl/#organization" }
     },
     {
       "@type": "Service",
@@ -323,11 +333,15 @@ gtag('config', 'G-RLBTQGY7ZK');
 </head>
 
 <body>
+<!-- Aplica el tema guardado antes de pintar (evita el parpadeo oscuro→claro) -->
+<script>try{if(localStorage.getItem('ipaf-theme')==='light')document.body.classList.add('light')}catch(e){}</script>
+
+<a href="#cursos" class="skip-link">Saltar al contenido</a>
 
 <!-- ===================== FAB WHATSAPP DESKTOP ===================== -->
 <a href="https://wa.me/56965315200?text=Hola,%20me%20interesa%20cotizar%20un%20Curso%20de%20Formaci%C3%B3n%20IPAF" target="_blank" rel="noopener" class="fab-wsp" aria-label="Cotizar Curso IPAF por WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0">
-    <path fill="#fff" d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.474 2.027 7.776L0 32l8.476-2.003A15.936 15.936 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.763-1.845l-.484-.287-5.03 1.188 1.21-4.906-.316-.503A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.274-9.84c-.4-.2-2.363-1.165-2.73-1.298-.367-.133-.634-.2-.9.2-.267.4-1.033 1.298-1.267 1.565-.233.267-.467.3-.867.1-.4-.2-1.687-.622-3.213-1.981-1.188-1.058-1.99-2.365-2.223-2.765-.233-.4-.025-.616.175-.815.18-.18.4-.467.6-.7.2-.233.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.9-2.168-1.233-2.968-.325-.78-.655-.674-.9-.686l-.767-.013c-.267 0-.7.1-1.067.5s-1.4 1.365-1.4 3.332 1.433 3.865 1.633 4.132c.2.267 2.82 4.305 6.832 6.036.955.412 1.7.658 2.282.842.958.305 1.831.262 2.52.159.769-.114 2.363-.966 2.696-1.9.333-.933.333-1.733.233-1.9-.1-.167-.367-.267-.767-.467z"/>
+    <path fill="currentColor" d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.474 2.027 7.776L0 32l8.476-2.003A15.936 15.936 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.763-1.845l-.484-.287-5.03 1.188 1.21-4.906-.316-.503A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.274-9.84c-.4-.2-2.363-1.165-2.73-1.298-.367-.133-.634-.2-.9.2-.267.4-1.033 1.298-1.267 1.565-.233.267-.467.3-.867.1-.4-.2-1.687-.622-3.213-1.981-1.188-1.058-1.99-2.365-2.223-2.765-.233-.4-.025-.616.175-.815.18-.18.4-.467.6-.7.2-.233.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.9-2.168-1.233-2.968-.325-.78-.655-.674-.9-.686l-.767-.013c-.267 0-.7.1-1.067.5s-1.4 1.365-1.4 3.332 1.433 3.865 1.633 4.132c.2.267 2.82 4.305 6.832 6.036.955.412 1.7.658 2.282.842.958.305 1.831.262 2.52.159.769-.114 2.363-.966 2.696-1.9.333-.933.333-1.733.233-1.9-.1-.167-.367-.267-.767-.467z"/>
   </svg>
   <span class="fab-wsp-label">¿Tienes dudas?<br><strong>Escríbenos</strong></span>
 </a>
@@ -353,9 +367,11 @@ gtag('config', 'G-RLBTQGY7ZK');
     </ul>
   </nav>
 
-  <div style="display:flex; align-items:center; gap:12px;">
-    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema"></button>
-    <button class="hamburger" id="hamburger" aria-label="Menú">
+  <div class="header-tools">
+    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Usar tema claro">
+      <span class="material-icons" aria-hidden="true">light_mode</span>
+    </button>
+    <button type="button" class="hamburger" id="hamburger" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -376,49 +392,21 @@ gtag('config', 'G-RLBTQGY7ZK');
 </div>
 
 <!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
+<nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
   <a href="#top" class="mob-link">Inicio</a>
   <a href="#cursos" class="mob-link">Cursos IPAF</a>
   <a href="#why" class="mob-link">¿Por qué IPAF?</a>
   <a href="#beneficios" class="mob-link">Ofertas</a>
   <a href="#contact" class="mob-link">Contacto</a>
   <a href="#faq" class="mob-link">FAQ</a>
-</div>
+  <a href="https://wa.me/56965315200?text=Hola,%20me%20interesa%20cotizar%20un%20Curso%20de%20Formaci%C3%B3n%20IPAF" target="_blank" rel="noopener" class="mob-link mob-cta">Cotizar por WhatsApp</a>
+</nav>
 
 <!-- ===================== HERO ===================== -->
-<section id="top" style="position:relative;">
-  <div id="hero">
-    <div class="hero-bg-carousel" id="heroBg">
-      <div class="hero-slide active">
-        <picture>
-          <source media="(max-width: 767px)" srcset="img/banner/banner-ipaf-mobile.webp" type="image/webp" width="900" height="1125">
-          <img src="img/banner/banner-ipaf-plataformas-elevadoras.webp" alt="Centro de Formación IPAF Motorman — Plataformas Elevadoras Santiago Chile" width="1920" height="930" fetchpriority="high" decoding="async">
-        </picture>
-      </div>
-      <div class="hero-slide">
-        <picture>
-          <source media="(max-width: 767px)" srcset="img/banner/banner-ipaf-mobile.webp" type="image/webp" width="900" height="1125">
-          <img src="img/banner/banner-ipaf-plataformas-elevadoras.webp" width="1920" height="930" decoding="async" alt="Curso IPAF Operador PEMP — Categorías 1A 1B 3A 3B" loading="lazy">
-        </picture>
-      </div>
-      <div class="hero-slide">
-        <picture>
-          <source media="(max-width: 767px)" srcset="img/banner/banner-ipaf-mobile.webp" type="image/webp" width="900" height="1125">
-          <img src="img/banner/banner-ipaf-plataformas-elevadoras.webp" width="1920" height="930" decoding="async" alt="Tarjeta PAL Internacional — Certificación IPAF Chile" loading="lazy">
-        </picture>
-      </div>
-      <div class="hero-slide">
-        <picture>
-          <source media="(max-width: 767px)" srcset="img/banner/banner-ipaf-mobile.webp" type="image/webp" width="900" height="1125">
-          <img src="img/banner/banner-ipaf-plataformas-elevadoras.webp" width="1920" height="930" decoding="async" alt="Formación PEMP Presencial — Motorman Pudahuel Región Metropolitana" loading="lazy">
-        </picture>
-      </div>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-overlay-top"></div>
-
+<section id="top" class="hero">
+  <div class="hero-grid">
     <div class="hero-content">
-      <div class="hero-badge">Centro IPAF · Santiago de Chile</div>
+      <p class="hero-badge">Centro homologado IPAF · Pudahuel, Santiago</p>
       <h1 class="hero-title">
         Cursos IPAF Chile
         <span class="accent">Tarjeta PAL Internacional</span>
@@ -426,38 +414,45 @@ gtag('config', 'G-RLBTQGY7ZK');
       <p class="hero-desc">Centro de Formación Homologado IPAF en Santiago. Certifícate como operador de plataformas elevadoras o alzahombres (PEMP) con la <strong>Tarjeta PAL</strong>, válida en más de 70 países. Formación teórica y práctica con certificación TÜV.</p>
       <div class="hero-actions">
         <a href="#cursos" class="btn-primary-gold">
-          <span class="material-icons" aria-hidden="true" style="font-size:18px!important">school</span>
-          Ver los 4 Cursos
+          Ver los 4 cursos
+          <span class="material-icons" aria-hidden="true">arrow_downward</span>
         </a>
         <a href="https://wa.me/56965315200?text=Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20cursos%20IPAF" target="_blank" rel="noopener" class="btn-secondary-outline">
-          <span class="material-icons" aria-hidden="true" style="font-size:18px!important">chat</span>
+          <span class="material-icons" aria-hidden="true">chat</span>
           Hablar con un experto
         </a>
       </div>
     </div>
 
-    <div class="hero-dots" id="heroDots"></div>
+    <!-- Escritorio: banner horizontal a pantalla completa detrás del texto. Pantallas ≤1300px: foto vertical bajo el texto. -->
+    <figure class="hero-media">
+      <picture>
+        <source media="(min-width: 1301px)" srcset="img/banner/banner-ipaf-plataformas-elevadoras.webp" type="image/webp" width="1920" height="930">
+        <img src="img/banner/banner-ipaf-mobile.webp" width="900" height="1125" fetchpriority="high" decoding="async"
+             alt="Centro de Formación IPAF Motorman — Alzahombre de brazo articulado Dingli, plataformas elevadoras en Santiago de Chile">
+      </picture>
+    </figure>
   </div>
 
-  <!-- Stats Strip -->
-  <div class="hero-stats">
+  <!-- Datos clave -->
+  <dl class="hero-stats">
     <div class="hero-stat">
-      <div class="hero-stat-num">+500</div>
-      <div class="hero-stat-label">Operadores Certificados</div>
+      <dt class="hero-stat-label">Operadores certificados</dt>
+      <dd class="hero-stat-num">+500</dd>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num">4</div>
-      <div class="hero-stat-label">Categorías IPAF</div>
+      <dt class="hero-stat-label">Categorías IPAF</dt>
+      <dd class="hero-stat-num">1A · 1B · 3A · 3B</dd>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num">PAL</div>
-      <div class="hero-stat-label">Licencia Internacional</div>
+      <dt class="hero-stat-label">Países reconocen la PAL</dt>
+      <dd class="hero-stat-num">+70</dd>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num">TÜV</div>
-      <div class="hero-stat-label">Certificado por TÜV</div>
+      <dt class="hero-stat-label">Programa certificado</dt>
+      <dd class="hero-stat-num">TÜV</dd>
     </div>
-  </div>
+  </dl>
 </section>
 
 <!-- ===================== CURSOS ===================== -->
@@ -466,44 +461,50 @@ gtag('config', 'G-RLBTQGY7ZK');
     <div class="section-header reveal">
       <span class="section-eyebrow">Formación Especializada</span>
       <h2 class="section-title">Cursos IPAF por Categoría</h2>
-      <p class="section-subtitle">Selecciona la categoría que se adapta a la máquina que operas</p>
-      <div class="section-line"></div>
+      <p class="section-subtitle">Tu categoría sale de dos preguntas sobre la máquina que operas: ¿se desplaza con la plataforma arriba? ¿la plataforma sale de la base?</p>
     </div>
 
-    <!-- Tabs -->
-    <div class="curso-tabs reveal" role="tablist" aria-label="Categorías de cursos IPAF">
-      <button type="button" class="curso-tab active" data-tab="1" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1">
-        <span class="tab-cat" aria-hidden="true">1<span class="cat-accent">A</span></span>
-        <span class="tab-label">Estáticas Verticales</span>
-        <span class="sr-only">Categoría 1A — Estáticas Verticales</span>
-      </button>
-      <button type="button" class="curso-tab" data-tab="2" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">
-        <span class="tab-cat" aria-hidden="true">1<span class="cat-accent">B</span></span>
-        <span class="tab-label">Brazos Estáticos</span>
-        <span class="sr-only">Categoría 1B — Brazos Estáticos</span>
-      </button>
-      <button type="button" class="curso-tab" data-tab="3" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1">
-        <span class="tab-cat" aria-hidden="true">3<span class="cat-accent">A</span></span>
-        <span class="tab-label">Verticales Móviles</span>
-        <span class="sr-only">Categoría 3A — Verticales Móviles</span>
-      </button>
-      <button type="button" class="curso-tab" data-tab="4" role="tab" aria-selected="false" aria-controls="panel-4" id="tab-4" tabindex="-1">
-        <span class="tab-cat" aria-hidden="true">3<span class="cat-accent">B</span></span>
-        <span class="tab-label">Brazos Móviles</span>
-        <span class="sr-only">Categoría 3B — Brazos Móviles</span>
-      </button>
+    <!-- Matriz IPAF: el número dice si la máquina se desplaza elevada (1 = no, 3 = sí);
+         la letra, si la plataforma sobrepasa la base (A = no, B = sí). Cada celda es una pestaña. -->
+    <div class="curso-matrix reveal">
+      <p class="matrix-corner">Categoría = número + letra</p>
+      <p class="matrix-col matrix-col--a"><span class="matrix-key">A</span> Vertical <small>La plataforma no sale de la base</small></p>
+      <p class="matrix-col matrix-col--b"><span class="matrix-key">B</span> Brazo <small>La plataforma sobrepasa la base</small></p>
+      <p class="matrix-row matrix-row--1"><span class="matrix-name"><span class="matrix-key">1</span> Estática</span> <small>No se desplaza elevada</small></p>
+      <p class="matrix-row matrix-row--3"><span class="matrix-name"><span class="matrix-key">3</span> Móvil</span> <small>Se conduce elevada</small></p>
+
+      <div class="curso-tabs" role="tablist" aria-label="Categorías de cursos IPAF">
+        <button type="button" class="curso-tab active" data-tab="1" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1">
+          <span class="tab-cat" aria-hidden="true">1A</span>
+          <span class="tab-label">Estáticas verticales</span>
+          <span class="sr-only">Categoría 1A — Estáticas Verticales</span>
+        </button>
+        <button type="button" class="curso-tab" data-tab="2" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">
+          <span class="tab-cat" aria-hidden="true">1B</span>
+          <span class="tab-label">Brazos estáticos</span>
+          <span class="sr-only">Categoría 1B — Brazos Estáticos</span>
+        </button>
+        <button type="button" class="curso-tab" data-tab="3" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1">
+          <span class="tab-cat" aria-hidden="true">3A</span>
+          <span class="tab-label">Verticales móviles</span>
+          <span class="sr-only">Categoría 3A — Verticales Móviles</span>
+        </button>
+        <button type="button" class="curso-tab" data-tab="4" role="tab" aria-selected="false" aria-controls="panel-4" id="tab-4" tabindex="-1">
+          <span class="tab-cat" aria-hidden="true">3B</span>
+          <span class="tab-label">Brazos móviles</span>
+          <span class="sr-only">Categoría 3B — Brazos Móviles</span>
+        </button>
+      </div>
     </div>
 
-    <!-- Panels -->
+<!-- Panels -->
     <div class="curso-panels">
 
       <!-- Panel 1A -->
       <div class="curso-panel active" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
         <div class="curso-card">
           <div class="curso-img-wrap">
-            <img src="img/cursos/curso-ipaf-categoria-1a.webp" width="900" height="900" decoding="async" alt="Curso IPAF Categoría 1A — Plataforma elevadora vertical estática (PAV)" loading="lazy">
-            <div class="curso-img-overlay"></div>
-            <div class="curso-img-badge">CAT 1A</div>
+            <img src="img/cursos/curso-ipaf-categoria-1a.webp" width="900" height="900" decoding="async" alt="Curso IPAF Categoría 1A — Operador en plataforma vertical de mástil Dingli de empuje manual, con estabilizadores, en una bodega" loading="lazy">
           </div>
           <div class="curso-info">
             <div class="curso-cat-tag">Plataformas Elevadoras · Categoría 1A</div>
@@ -511,30 +512,25 @@ gtag('config', 'G-RLBTQGY7ZK');
             <p class="curso-sub">Elevadores PAV de empuje manual</p>
             <ul class="curso-features">
               <li>
-                <div class="feature-icon"><span class="material-icons">precision_manufacturing</span></div>
                 <span><span class="feature-label">Máquinas:</span>Estáticas Verticales — Ej: Elevadores PAV de empuje manual.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">swap_horiz</span></div>
                 <span><span class="feature-label">Desplazamiento:</span>La máquina NO puede desplazarse con la plataforma elevada.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">straighten</span></div>
                 <span><span class="feature-label">Alcance:</span>El centro de la plataforma NO se desplaza más allá de la base de trabajo.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">school</span></div>
                 <span><span class="feature-label">Modalidad:</span>Teoría + Evaluación Práctica en instalaciones de Motorman.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">card_membership</span></div>
                 <span><span class="feature-label">Acreditación:</span>Licencia Internacional IPAF — Tarjeta PAL.</span>
               </li>
             </ul>
             <div class="curso-actions">
               <a href="https://wa.me/56965315200?text=Hola,%20me%20interesa%20el%20Curso%20IPAF%201A" target="_blank" rel="noopener" class="btn-reservar">
-                <span class="material-icons">calendar_today</span>
-                Reservar Cupo
+                Reservar cupo
+                <span class="material-icons" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
           </div>
@@ -545,9 +541,7 @@ gtag('config', 'G-RLBTQGY7ZK');
       <div class="curso-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
         <div class="curso-card">
           <div class="curso-img-wrap">
-            <img src="img/cursos/curso-ipaf-categoria-1b.webp" width="900" height="900" decoding="async" alt="Curso IPAF Categoría 1B — Plataforma de brazo estático sobre camión o remolque" loading="lazy">
-            <div class="curso-img-overlay"></div>
-            <div class="curso-img-badge">CAT 1B</div>
+            <img src="img/cursos/curso-ipaf-categoria-1b.webp" width="900" height="900" decoding="async" alt="Curso IPAF Categoría 1B — Plataforma de brazo sobre camión con estabilizadores, trabajando en alumbrado público" loading="lazy">
           </div>
           <div class="curso-info">
             <div class="curso-cat-tag">Plataformas Elevadoras · Categoría 1B</div>
@@ -555,30 +549,25 @@ gtag('config', 'G-RLBTQGY7ZK');
             <p class="curso-sub">Plataformas sobre camión o remolque</p>
             <ul class="curso-features">
               <li>
-                <div class="feature-icon"><span class="material-icons">precision_manufacturing</span></div>
                 <span><span class="feature-label">Máquinas:</span>Brazos Estáticos — Ej: Plataformas sobre camión o remolque.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">swap_horiz</span></div>
                 <span><span class="feature-label">Desplazamiento:</span>La máquina NO puede desplazarse con la plataforma elevada.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">straighten</span></div>
                 <span><span class="feature-label">Alcance:</span>El centro de la plataforma SÍ puede desplazarse más allá de la base.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">school</span></div>
                 <span><span class="feature-label">Modalidad:</span>Teoría + Evaluación Práctica en instalaciones de Motorman.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">card_membership</span></div>
                 <span><span class="feature-label">Acreditación:</span>Licencia Internacional IPAF — Tarjeta PAL.</span>
               </li>
             </ul>
             <div class="curso-actions">
               <a href="https://wa.me/56965315200?text=Hola,%20me%20interesa%20el%20Curso%20IPAF%201B" target="_blank" rel="noopener" class="btn-reservar">
-                <span class="material-icons">calendar_today</span>
-                Reservar Cupo
+                Reservar cupo
+                <span class="material-icons" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
           </div>
@@ -589,9 +578,7 @@ gtag('config', 'G-RLBTQGY7ZK');
       <div class="curso-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
         <div class="curso-card">
           <div class="curso-img-wrap">
-            <img src="img/cursos/curso-ipaf-categoria-3a.webp" width="900" height="900" decoding="async" alt="Curso IPAF Categoría 3A — Plataforma tijera autopropulsada" loading="lazy">
-            <div class="curso-img-overlay"></div>
-            <div class="curso-img-badge">CAT 3A</div>
+            <img src="img/cursos/curso-ipaf-categoria-3a.webp" width="900" height="900" decoding="async" alt="Curso IPAF Categoría 3A — Plataforma tijera autopropulsada Dingli JCPT2212DC elevada en una nave industrial en construcción" loading="lazy">
           </div>
           <div class="curso-info">
             <div class="curso-cat-tag">Plataformas Elevadoras · Categoría 3A</div>
@@ -599,30 +586,25 @@ gtag('config', 'G-RLBTQGY7ZK');
             <p class="curso-sub">Plataformas tipo tijera autopropulsadas</p>
             <ul class="curso-features">
               <li>
-                <div class="feature-icon"><span class="material-icons">precision_manufacturing</span></div>
                 <span><span class="feature-label">Máquinas:</span>Verticales Móviles — Ej: Plataformas tipo tijera.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">swap_horiz</span></div>
                 <span><span class="feature-label">Desplazamiento:</span>SÍ puede desplazarse elevada, se conduce desde la plataforma.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">straighten</span></div>
                 <span><span class="feature-label">Alcance:</span>El centro de la plataforma NO se desplaza más allá de la base.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">school</span></div>
                 <span><span class="feature-label">Modalidad:</span>Teoría + Evaluación Práctica en instalaciones de Motorman.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">card_membership</span></div>
                 <span><span class="feature-label">Acreditación:</span>Licencia Internacional IPAF — Tarjeta PAL.</span>
               </li>
             </ul>
             <div class="curso-actions">
               <a href="https://wa.me/56965315200?text=Hola,%20me%20interesa%20el%20Curso%20IPAF%203A" target="_blank" rel="noopener" class="btn-reservar">
-                <span class="material-icons">calendar_today</span>
-                Reservar Cupo
+                Reservar cupo
+                <span class="material-icons" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
           </div>
@@ -633,9 +615,7 @@ gtag('config', 'G-RLBTQGY7ZK');
       <div class="curso-panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
         <div class="curso-card">
           <div class="curso-img-wrap">
-            <img src="img/cursos/curso-ipaf-categoria-3b.webp" width="900" height="900" decoding="async" alt="Curso IPAF Categoría 3B — Brazo articulado autopropulsado" loading="lazy">
-            <div class="curso-img-overlay"></div>
-            <div class="curso-img-badge">CAT 3B</div>
+            <img src="img/cursos/curso-ipaf-categoria-3b.webp" width="900" height="900" decoding="async" alt="Curso IPAF Categoría 3B — Brazo articulado autopropulsado Dingli BA44RT en obra, operador con arnés en la canasta" loading="lazy">
           </div>
           <div class="curso-info">
             <div class="curso-cat-tag">Plataformas Elevadoras · Categoría 3B</div>
@@ -643,30 +623,25 @@ gtag('config', 'G-RLBTQGY7ZK');
             <p class="curso-sub">Brazos articulados autopropulsados</p>
             <ul class="curso-features">
               <li>
-                <div class="feature-icon"><span class="material-icons">precision_manufacturing</span></div>
                 <span><span class="feature-label">Máquinas:</span>Brazos Móviles — Ej: Brazos articulados autopropulsados.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">swap_horiz</span></div>
                 <span><span class="feature-label">Desplazamiento:</span>SÍ puede desplazarse elevada, se conduce desde la plataforma.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">straighten</span></div>
                 <span><span class="feature-label">Alcance:</span>El centro de la plataforma SÍ puede desplazarse más allá de la base.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">school</span></div>
                 <span><span class="feature-label">Modalidad:</span>Teoría + Evaluación Práctica en instalaciones de Motorman.</span>
               </li>
               <li>
-                <div class="feature-icon"><span class="material-icons">card_membership</span></div>
                 <span><span class="feature-label">Acreditación:</span>Licencia Internacional IPAF — Tarjeta PAL.</span>
               </li>
             </ul>
             <div class="curso-actions">
               <a href="https://wa.me/56965315200?text=Hola,%20me%20interesa%20el%20Curso%20IPAF%203B" target="_blank" rel="noopener" class="btn-reservar">
-                <span class="material-icons">calendar_today</span>
-                Reservar Cupo
+                Reservar cupo
+                <span class="material-icons" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
           </div>
@@ -682,49 +657,29 @@ gtag('config', 'G-RLBTQGY7ZK');
   <div class="container">
     <div class="why-grid">
       <div class="why-text reveal">
-        <div class="section-header" style="text-align:left; margin-bottom:32px;">
+        <div class="section-header section-header--left">
           <span class="section-eyebrow">La Credencial que el Mundo Reconoce</span>
           <h2 class="section-title">¿Por qué certificarse<br>con la Tarjeta PAL IPAF?</h2>
-          <div class="section-line" style="margin:20px 0 0;"></div>
         </div>
         <p class="why-body">
           La Federación Internacional del Acceso Motorizado (IPAF) fomenta el uso seguro y efectivo del acceso motorizado en todo el mundo. Nuestro programa, certificado por TÜV, clasifica los equipos en categorías precisas para asegurar una formación adecuada a la máquina que operas: desde el alzahombre tipo tijera hasta el brazo articulado. Es la base para trabajar en altura con plataformas de forma segura y demostrable ante tu empresa o mandante.
         </p>
-        <p class="why-body" style="margin-top:12px;">
-          ¿No sabes qué categoría necesitas? Revisa nuestra guía <a href="/guias/categorias-ipaf/" style="color:var(--gold);text-decoration:underline;">Categorías IPAF 1A, 1B, 3A y 3B: diferencias y cuál elegir</a>.
+        <p class="why-body">
+          ¿No sabes qué categoría necesitas? Revisa nuestra guía <a href="/guias/categorias-ipaf/" class="text-link">Categorías IPAF 1A, 1B, 3A y 3B: diferencias y cuál elegir</a>.
         </p>
-        <div class="why-pal-badge">
-          <span class="material-icons">verified</span>
-          <div class="pal-badge-text">
-            <strong>Tarjeta PAL — Powered Access Licence</strong>
-            <span>La credencial más reconocida a nivel internacional</span>
-          </div>
-        </div>
-        <div class="why-pal-badge" style="margin-top:12px;">
-          <span class="material-icons">smartphone</span>
-          <div class="pal-badge-text">
-            <strong>App ePAL — Licencia Digital</strong>
-            <span>Tu licencia y registro de experiencia en tu celular</span>
-          </div>
-        </div>
-        <div class="why-pal-badge" style="margin-top:12px;">
-          <span class="material-icons">business</span>
-          <div class="pal-badge-text">
-            <strong>Centro de Formación Homologado</strong>
-            <span>Instrucción de excelencia bajo estándares internacionales</span>
-          </div>
-        </div>
       </div>
+
+      <!-- Video propio. preload=none: los ~23 MB se descargan solo al darle play; mientras, se ve el poster (40 KB) -->
       <div class="why-media reveal reveal-delay-2">
-        <div class="why-video-wrap">
-          <!-- Mientras video/formacion-ipaf-plataforma-elevadora.mp4 sea un placeholder vacío se muestra
-               una imagen (un <video> sin archivo deja un reproductor roto). Cuando exista el video, volver a:
-               <video controls preload="none" poster="img/cursos/curso-ipaf-categoria-3b.webp" title="Plataforma elevadora en movimiento — Formación IPAF Motorman">
-                 <source src="video/formacion-ipaf-plataforma-elevadora.mp4" type="video/mp4">
-               </video> -->
-          <img src="img/cursos/curso-ipaf-categoria-3b.webp" alt="Alzahombre de brazo articulado, categoría IPAF 3B — Formación Motorman" width="900" height="900" loading="lazy" decoding="async">
-          <div class="why-video-overlay"></div>
-        </div>
+        <figure class="why-video">
+          <video controls preload="none" playsinline width="1280" height="720"
+                 poster="video/seguridad-en-altura-poster.webp"
+                 title="Seguridad en altura — Formación IPAF Motorman">
+            <source src="video/Seguridad_en_Altura.mp4" type="video/mp4">
+            <a href="video/Seguridad_en_Altura.mp4">Descargar el video Seguridad en altura (MP4)</a>
+          </video>
+          <figcaption><span class="mono">Video · 4:20</span> Seguridad en altura: normas, equipos y trabajo seguro con plataformas elevadoras</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -737,67 +692,51 @@ gtag('config', 'G-RLBTQGY7ZK');
     <div class="section-header reveal">
       <span class="section-eyebrow">Lo que nos diferencia</span>
       <h2 class="section-title">Beneficios del Curso IPAF en Motorman</h2>
-      <div class="section-line"></div>
     </div>
 
     <div class="benefits-grid">
       <div class="benefit-card reveal reveal-delay-1">
-        <div class="benefit-icon-wrap">
-          <span class="material-icons">school</span>
-        </div>
-        <h3 class="benefit-title">Instructor Experto</h3>
+        <span class="material-icons benefit-icon" aria-hidden="true">engineering</span>
+        <h3 class="benefit-title">Instructor experto</h3>
         <p class="benefit-desc">Formación liderada por nuestro <strong>Product Manager de Alzahombres</strong>. Aprenderás no solo a operar, sino a entender el rendimiento técnico y comercial de cada equipo.</p>
       </div>
       <div class="benefit-card reveal reveal-delay-2">
-        <div class="benefit-icon-wrap">
-          <span class="material-icons">card_giftcard</span>
-        </div>
-        <h3 class="benefit-title">Curso Gratis con tu Compra</h3>
+        <span class="material-icons benefit-icon" aria-hidden="true">card_giftcard</span>
+        <h3 class="benefit-title">Curso gratis con tu compra</h3>
         <p class="benefit-desc">Por la compra de tu plataforma elevadora en Motorman, el curso <strong>IPAF para el operador es totalmente gratuito</strong>. Protege tu inversión desde el primer día.</p>
       </div>
       <div class="benefit-card reveal reveal-delay-3">
-        <div class="benefit-icon-wrap">
-          <span class="material-icons">autorenew</span>
-        </div>
-        <h3 class="benefit-title">Renovación con Descuento</h3>
+        <span class="material-icons benefit-icon" aria-hidden="true">autorenew</span>
+        <h3 class="benefit-title">Renovación con descuento</h3>
         <p class="benefit-desc">¿Tu tarjeta PAL está por vencer? Si ya te certificaste con nosotros, obtén un <strong>descuento exclusivo de fidelidad</strong> para mantener tu licencia al día.</p>
       </div>
     </div>
 
-    <!-- Ofertas -->
-    <div class="section-header reveal" style="margin-top:80px;">
+    <!-- Ofertas: el descuento sube con el tamaño del grupo (la barra lo muestra) -->
+    <div class="section-header reveal ofertas-header">
       <span class="section-eyebrow">Ahorra en Grupo</span>
       <h2 class="section-title">Descuentos por Grupo en Cursos IPAF</h2>
-      <div class="section-line"></div>
+      <p class="section-subtitle">Mientras más operadores inscribes, mayor el descuento para todos.</p>
     </div>
 
-    <div class="benefits-grid">
-      <div class="oferta-card reveal reveal-delay-1">
-        <div class="oferta-discount">10%</div>
-        <h3 class="oferta-title">Dupla Segura</h3>
+    <div class="ofertas-grid">
+      <div class="oferta-card reveal reveal-delay-1" style="--nivel: 1">
+        <p class="oferta-req">2 personas</p>
+        <p class="oferta-discount">10%</p>
+        <h3 class="oferta-title">Dupla segura</h3>
         <p class="oferta-desc">Inscríbete con un compañero y ambos obtienen automáticamente un <strong>10% de descuento</strong> en el valor total del curso.</p>
-        <div class="oferta-req">
-          <span class="material-icons" style="font-size:14px!important">group</span>
-          2 personas
-        </div>
       </div>
-      <div class="oferta-card reveal reveal-delay-2">
-        <div class="oferta-discount">20%</div>
-        <h3 class="oferta-title">Equipo de Trabajo</h3>
+      <div class="oferta-card reveal reveal-delay-2" style="--nivel: 2">
+        <p class="oferta-req">4 personas</p>
+        <p class="oferta-discount">20%</p>
+        <h3 class="oferta-title">Equipo de trabajo</h3>
         <p class="oferta-desc">Para cuadrillas de 4 operadores, aplicamos un <strong>20% de descuento</strong>. Ideal para optimizar el presupuesto de seguridad de tu obra.</p>
-        <div class="oferta-req">
-          <span class="material-icons" style="font-size:14px!important">groups</span>
-          4 personas
-        </div>
       </div>
-      <div class="oferta-card reveal reveal-delay-3">
-        <div class="oferta-discount">30%</div>
+      <div class="oferta-card reveal reveal-delay-3" style="--nivel: 3">
+        <p class="oferta-req">6 o más personas</p>
+        <p class="oferta-discount">30%</p>
         <h3 class="oferta-title">Empresas</h3>
         <p class="oferta-desc">Certifica a 6 o más operadores y accede a nuestro beneficio máximo: <strong>30% de descuento</strong>. La opción más rentable para grandes proyectos.</p>
-        <div class="oferta-req">
-          <span class="material-icons" style="font-size:14px!important">corporate_fare</span>
-          6+ personas
-        </div>
       </div>
     </div>
   </div>
@@ -806,11 +745,13 @@ gtag('config', 'G-RLBTQGY7ZK');
 <!-- ===================== CTA WHATSAPP ===================== -->
 <section id="cta">
   <div class="cta-inner">
-    <h2 class="cta-title">Cotiza tu Curso IPAF por WhatsApp</h2>
-    <p class="cta-sub">Cotiza tu curso y asegura tu cupo hoy mismo</p>
+    <div>
+      <h2 class="cta-title">Cotiza tu Curso IPAF por WhatsApp</h2>
+      <p class="cta-sub">Cuéntanos la categoría y cuántos operadores son. Te respondemos con fechas y valor.</p>
+    </div>
     <a href="https://wa.me/56965315200?text=Hola,%20me%20interesa%20cotizar%20un%20Curso%20de%20Formaci%C3%B3n%20IPAF" target="_blank" rel="noopener" class="btn-wsp">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Iniciar conversación por WhatsApp
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribir por WhatsApp
     </a>
   </div>
 </section>
@@ -822,7 +763,6 @@ gtag('config', 'G-RLBTQGY7ZK');
       <span class="section-eyebrow">Estamos para ayudarte</span>
       <h2 class="section-title">Contacto Centro IPAF Motorman</h2>
       <p class="section-subtitle">Reserva tu cupo en nuestro Centro de Formación Homologado IPAF</p>
-      <div class="section-line"></div>
     </div>
 
     <!-- ===== Fila 1: Formulario (izq) + Dirección/Mapa (der) ===== -->
@@ -838,8 +778,7 @@ gtag('config', 'G-RLBTQGY7ZK');
           </div>
         </header>
 
-        <form action="https://formspree.io/f/mlgvznpl" method="POST" id="contact-form" class="contact-form" novalidate>
-          <input type="hidden" name="action" value="send_contact_form">
+        <form action="https://formspree.io/f/mlgvznpl" method="POST" id="contact-form" class="contact-form">
 
           <div class="form-group">
             <label for="cf-nombre" class="sr-only">Nombre o empresa</label>
@@ -950,8 +889,8 @@ gtag('config', 'G-RLBTQGY7ZK');
     <article class="instructor-card-wide reveal reveal-delay-3">
       <div class="instructor-photo-wrap">
         <img
-          src="img/equipo/instructor-ipaf-rodrigo-carreno.webp"
-          width="80" height="80"
+          src="img/equipo/rodrigo-carreno.jpg"
+          width="240" height="240"
           alt="Rodrigo Carreño — Instructor IPAF certificado de Motorman"
           class="instructor-photo-wide"
           loading="lazy">
@@ -998,17 +937,19 @@ gtag('config', 'G-RLBTQGY7ZK');
           Descubre cómo certificarte con la Federación Internacional del Acceso Motorizado (IPAF). Nuestra capacitación teórica y práctica te prepara para operar plataformas elevadoras (PEMP) de manera segura y eficiente. Reduce riesgos y cumple con los estándares internacionales obteniendo tu credencial IPAF.
         </p>
         <a href="#contact" class="btn-primary-gold info-cta">
-          <span class="material-icons" aria-hidden="true" style="font-size:18px!important">how_to_reg</span>
-          Reserva tu cupo
+          Reservar cupo
+          <span class="material-icons" aria-hidden="true">arrow_forward</span>
         </a>
       </div>
+      <!-- Fachada liviana: el reproductor de YouTube (~1 MB de JS) se carga recién al hacer clic.
+           Sin JS, el enlace abre el video en YouTube. -->
       <div class="info-video-wrap reveal reveal-delay-2">
-        <iframe
-          src="https://www.youtube.com/embed/qQgpngalrgw"
-          title="Formación IPAF — Cómo se opera una plataforma elevadora con seguridad"
-          loading="lazy"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+        <a class="yt-facade" href="https://www.youtube.com/watch?v=qQgpngalrgw" target="_blank" rel="noopener"
+           data-yt-id="qQgpngalrgw" data-yt-title="Formación IPAF — Cómo se opera una plataforma elevadora con seguridad">
+          <img src="https://i.ytimg.com/vi/qQgpngalrgw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+          <span class="yt-play" aria-hidden="true"><span class="material-icons">play_arrow</span></span>
+          <span class="sr-only">Reproducir video: Formación IPAF — Cómo se opera una plataforma elevadora con seguridad</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1021,7 +962,6 @@ gtag('config', 'G-RLBTQGY7ZK');
       <span class="section-eyebrow">Resolvemos tus dudas</span>
       <h2 class="section-title">Preguntas Frecuentes sobre Cursos IPAF</h2>
       <p class="section-subtitle">Todo lo que necesitas saber antes de inscribirte en un curso IPAF</p>
-      <div class="section-line"></div>
     </div>
 
     <div class="faq-list reveal">
@@ -1071,7 +1011,7 @@ gtag('config', 'G-RLBTQGY7ZK');
           <span class="material-icons faq-icon" aria-hidden="true">expand_more</span>
         </summary>
         <div class="faq-a">
-          La Tarjeta PAL tiene una vigencia de <strong>5 años</strong>. Para su renovación, el operador debe asistir a un curso de actualización con un centro homologado IPAF como Motorman. Paso a paso en la guía <a href="/guias/renovar-tarjeta-pal/" style="color:var(--gold);text-decoration:underline;">cómo renovar la Tarjeta PAL</a>.
+          La Tarjeta PAL tiene una vigencia de <strong>5 años</strong>. Para su renovación, el operador debe asistir a un curso de actualización con un centro homologado IPAF como Motorman. Paso a paso en la guía <a href="/guias/renovar-tarjeta-pal/" class="text-link">cómo renovar la Tarjeta PAL</a>.
         </div>
       </details>
 
@@ -1081,7 +1021,7 @@ gtag('config', 'G-RLBTQGY7ZK');
           <span class="material-icons faq-icon" aria-hidden="true">expand_more</span>
         </summary>
         <div class="faq-a">
-          En Chile se le llama <strong>alzahombre</strong> a la plataforma elevadora móvil de personal (PEMP) usada para trabajo en altura. La categoría IPAF depende del equipo: <strong>3A</strong> para tijeras autopropulsadas, <strong>3B</strong> para brazos articulados o telescópicos autopropulsados, <strong>1A</strong> para verticales de empuje manual y <strong>1B</strong> para brazos sobre camión o remolque. Ver <a href="/guias/categorias-ipaf/" style="color:var(--gold);text-decoration:underline;">diferencias entre categorías IPAF</a>.
+          En Chile se le llama <strong>alzahombre</strong> a la plataforma elevadora móvil de personal (PEMP) usada para trabajo en altura. La categoría IPAF depende del equipo: <strong>3A</strong> para tijeras autopropulsadas, <strong>3B</strong> para brazos articulados o telescópicos autopropulsados, <strong>1A</strong> para verticales de empuje manual y <strong>1B</strong> para brazos sobre camión o remolque. Ver <a href="/guias/categorias-ipaf/" class="text-link">diferencias entre categorías IPAF</a>.
         </div>
       </details>
 
@@ -1145,8 +1085,8 @@ gtag('config', 'G-RLBTQGY7ZK');
 </footer>
 
 <!-- Scroll to Top -->
-<button id="scrollTop" aria-label="Volver arriba">
-  <span class="material-icons">keyboard_arrow_up</span>
+<button type="button" id="scrollTop" aria-label="Volver arriba">
+  <span class="material-icons" aria-hidden="true">keyboard_arrow_up</span>
 </button>
 
 <!-- ===================== SCRIPTS ===================== -->
@@ -1157,19 +1097,23 @@ gtag('config', 'G-RLBTQGY7ZK');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---- THEME TOGGLE ----
+  // El tema guardado ya se aplicó al inicio del <body>; aquí solo se sincroniza el botón.
   const themeToggle = document.getElementById('themeToggle');
-  const savedTheme = localStorage.getItem('ipaf-theme');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light');
-    themeToggle.setAttribute('aria-pressed', 'true');
-  } else {
-    themeToggle.setAttribute('aria-pressed', 'false');
+  const themeIcon = themeToggle.querySelector('.material-icons');
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  function syncThemeToggle() {
+    const isLight = document.body.classList.contains('light');
+    themeIcon.textContent = isLight ? 'dark_mode' : 'light_mode';
+    themeToggle.setAttribute('aria-label', isLight ? 'Usar tema oscuro' : 'Usar tema claro');
+    themeColor.setAttribute('content', isLight ? '#ecedea' : '#151618');
   }
+  syncThemeToggle();
   themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light');
-    const isLight = document.body.classList.contains('light');
-    localStorage.setItem('ipaf-theme', isLight ? 'light' : 'dark');
-    themeToggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+    try {
+      localStorage.setItem('ipaf-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    } catch (e) { /* almacenamiento bloqueado: el cambio vale solo para esta visita */ }
+    syncThemeToggle();
   });
 
   // ---- HEADER SCROLL (con requestAnimationFrame, más eficiente) ----
@@ -1197,7 +1141,8 @@ gtag('config', 'G-RLBTQGY7ZK');
     hamburger.classList.toggle('open', willOpen);
     mobileNav.classList.toggle('open', willOpen);
     hamburger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-    document.body.style.overflow = willOpen ? 'hidden' : '';
+    hamburger.setAttribute('aria-label', willOpen ? 'Cerrar menú' : 'Abrir menú');
+    document.body.classList.toggle('nav-open', willOpen);
   }
   hamburger.addEventListener('click', () => toggleMobileNav());
   document.querySelectorAll('.mob-link').forEach(link => {
@@ -1208,37 +1153,8 @@ gtag('config', 'G-RLBTQGY7ZK');
     if (e.key === 'Escape' && mobileNav.classList.contains('open')) toggleMobileNav(false);
   });
 
-  // ---- HERO CAROUSEL ----
-  const slides = document.querySelectorAll('.hero-slide');
-  const dotsContainer = document.getElementById('heroDots');
-  let currentSlide = 0;
-  let slideTimer = null;
-
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.type = 'button';
-    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Mostrar imagen ' + (i + 1));
-    dot.addEventListener('click', () => { goToSlide(i); resetSlideTimer(); });
-    dotsContainer.appendChild(dot);
-  });
-
-  function goToSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    dotsContainer.children[currentSlide].classList.remove('active');
-    currentSlide = n;
-    slides[currentSlide].classList.add('active');
-    dotsContainer.children[currentSlide].classList.add('active');
-  }
-  function resetSlideTimer() {
-    if (slideTimer) clearInterval(slideTimer);
-    if (!prefersReducedMotion) {
-      slideTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 5000);
-    }
-  }
-  resetSlideTimer();
-
   // ---- CURSO TABS (accesible con teclado) ----
+  // Las pestañas forman la matriz 2×2 (1A 1B / 3A 3B): ←→ recorren en orden, ↑↓ cambian de fila.
   const tabs = Array.from(document.querySelectorAll('.curso-tab'));
   const panels = Array.from(document.querySelectorAll('.curso-panel'));
 
@@ -1266,6 +1182,7 @@ gtag('config', 'G-RLBTQGY7ZK');
       let newIdx = null;
       if (e.key === 'ArrowRight') newIdx = (i + 1) % tabs.length;
       if (e.key === 'ArrowLeft')  newIdx = (i - 1 + tabs.length) % tabs.length;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') newIdx = (i + 2) % tabs.length;
       if (e.key === 'Home') newIdx = 0;
       if (e.key === 'End')  newIdx = tabs.length - 1;
       if (newIdx !== null) {
@@ -1292,6 +1209,20 @@ gtag('config', 'G-RLBTQGY7ZK');
     // Si no hay IO o el usuario prefiere reducir movimiento, mostrar todo de una
     reveals.forEach(el => el.classList.add('visible'));
   }
+
+  // ---- VIDEO YOUTUBE (fachada: el iframe se crea al hacer clic) ----
+  document.querySelectorAll('.yt-facade').forEach(facade => {
+    facade.addEventListener('click', (e) => {
+      e.preventDefault();
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + facade.dataset.ytId + '?autoplay=1&rel=0';
+      iframe.title = facade.dataset.ytTitle;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      facade.replaceWith(iframe);
+      iframe.focus();
+    });
+  });
 
   // ---- SCROLL TO TOP ----
   const scrollTopBtn = document.getElementById('scrollTop');

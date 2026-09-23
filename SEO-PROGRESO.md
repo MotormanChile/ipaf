@@ -83,3 +83,35 @@ Cada una con H1 único, FAQPage propio, enlace a `/#cursos` y a Motorman. Requie
 **⚠️ Importante para el futuro:** el archivo `.htaccess` del repo **ya no tiene efecto en producción**. Cualquier regla nueva de redirect, headers o reescritura debe agregarse en el dashboard de Cloudflare (`Reglas` de la zona `ipaf.cl`), no en `.htaccess`. Vale la pena dejarlo documentado o eliminarlo para no confundir a futuros mantenedores.
 
 **No se tocó:** correo (`mail`, `webmail`, `cpanel`, `ftp`, `imap`, `pop`, `smtp` de `ipaf.cl`) sigue apuntando al hosting original sin cambios. Nota aparte: el registro `MX` de `ipaf.cl` ya tenía una advertencia propia de Cloudflare por apuntar a un hostname proxied — preexistente, no relacionado a este deploy, pendiente de revisar con quien administra el correo.
+
+## Ronda 4 — Rediseño visual y correcciones (2026-09-23)
+
+Dirección: **señalética industrial de obra**. Barlow Condensed (titulares, nace de la señalética vial) + Barlow (texto) + IBM Plex Mono (rótulos tipo placa técnica). Amarillo seguridad IPAF `#ffd100` y naranja Motorman `#eb6a14` como rellenos sólidos con texto casi negro. Sin gradientes, brillos ni marcas de agua. Tema oscuro "asfalto" por defecto, claro "hormigón".
+
+| Cambio | Detalle |
+|--------|---------|
+| Hero | Se eliminó el "carrusel" (4 slides con la misma imagen, que además traía texto e íconos incrustados y quedaba tapado por el titular). Ahora: texto sobre panel sólido + foto vertical de la máquina completa (`banner-ipaf-mobile.webp`, también preload LCP único). Franja de datos pasa a `<dl>` con datos útiles (+70 países, categorías). |
+| Selector de cursos | Las 4 pestañas son ahora la **matriz real de IPAF**: filas 1/3 (¿se desplaza elevada?) × columnas A/B (¿sobrepasa la base?). Flechas ←→ recorren, ↑↓ cambian de fila. Ficha del curso como placa técnica rótulo/valor. |
+| ¿Por qué IPAF? | La imagen repetida del 3B se reemplazó por una credencial PAL ilustrada (categorías, 70+ países, 5 años, ePAL, emisor). |
+| Ofertas | Indicador de nivel de 3 segmentos que se llena según el tamaño del grupo (10/20/30%). |
+| CTA | Franja amarilla con borde de cinta de peligro. |
+| Video | Fachada liviana: el iframe de YouTube (~1 MB JS) carga solo al hacer clic (youtube-nocookie). |
+| Correcciones | Formulario tenía `novalidate` (los campos obligatorios no se validaban) → quitado. Schema del instructor apuntaba a una foto borrada → `rodrigo-carreno.jpg`. Foto 240px ya no se estira a 280px. `--font-sans` inexistente en el FAB. FAB y "volver arriba" se superponían. Botón principal del hero perdía su color en móvil. Parpadeo del tema claro (el script ahora corre al inicio del `<body>`, también en las guías). Íconos Material con `display=block` (ya no se ve "school"/"call" mientras cargan). Menú móvil con CTA de WhatsApp, `aria-label` dinámicos, skip link, contenido visible sin JS. |
+| Guías | Mismo sistema visual (usan `styles.css`); fuentes actualizadas. |
+
+**Pendiente a revisar:** la Bulk Redirect List de Cloudflare (`ipaf_rutas_legacy`) incluye una ruta antigua del instructor; si su destino es `img/equipo/instructor-ipaf-rodrigo-carreno.webp` (archivo ya eliminado), actualizarla a `img/equipo/rodrigo-carreno.jpg`.
+
+### Ronda 4b — Banner original e imágenes de curso (2026-09-23)
+- **Hero:** vuelve el banner original (`banner-ipaf-plataformas-elevadoras.webp`) como fondo a pantalla completa en escritorio (≥901px), con degradado desde la izquierda para leer el texto. En móvil/tablet se mantiene la foto vertical bajo el texto. Preload por media query.
+- **Fichas de curso:** nuevas fotos generadas con Higgsfield (GPT Image 2.5, usando fotos oficiales de Dingli como referencia), mismos nombres de archivo (`img/cursos/curso-ipaf-categoria-*.webp`, 900×900, ~120–150 KB):
+  - 1A → Dingli GTWY (mástil vertical de empuje) en bodega.
+  - 1B → brazo sobre camión **genérico sin marca** (Dingli no fabrica esta categoría) en alumbrado público.
+  - 3A → tijera Dingli JCPT2212DC en nave en construcción.
+  - 3B → brazo articulado Dingli BA44RT en obra, operador con arnés.
+- Alt de las 4 imágenes actualizados a lo que muestran.
+
+### Ronda 4c — Hero a la izquierda y video propio (2026-09-23)
+- **Hero:** texto pegado al margen izquierdo (40px, igual que el logo). En pantallas >1300px el banner original va en su proporción real anclado a la derecha, con un panel sólido detrás del texto, así que la máquina, el logo IPAF y los íconos quedan visibles sin texto encima. Entre 901 y 1300px: foto vertical en columna a la derecha. ≤900px: apilado.
+- **#why:** la credencial PAL ilustrada se reemplazó por el video `video/Seguridad_en_Altura.mp4` (1280×720, 4:20, ~23 MB) con `preload="none"` y poster `video/seguridad-en-altura-poster.webp` (40 KB). Agregado `VideoObject` al JSON-LD.
+- **Ojo:** el video dice "80" (países) y la página dice "+70". Unificar la cifra.
+- **Ojo:** Cloudflare Workers limita cada archivo estático a 25 MiB; el video pesa 22,9 MiB. Si se reemplaza por uno más largo o de mayor calidad, comprimirlo o subirlo a YouTube.

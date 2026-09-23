@@ -37,6 +37,5 @@ Datos clave:
 
 - [Motorman](https://www.motorman.cl/): maquinaria, repuestos y servicio técnico en Chile.
 - [Motormaq](https://motormaq.cl/): repuestos para maquinaria, neumáticos y filtros.
-- [Yanmaq](https://yanmaq.cl/): venta y repuestos de miniexcavadoras Yanmar en Chile.
+- [Yanmaq](https://www.yanmaq.cl/): venta y repuestos de miniexcavadoras Yanmar en Chile.
 - [Motores Kubota](https://motoreskubota.cl/): motores y repuestos Kubota originales.
-- [MTQ](https://mtq.cl/)
